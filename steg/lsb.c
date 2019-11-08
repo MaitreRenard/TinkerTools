@@ -34,9 +34,8 @@ int main(int argc, char **argv) {
 				printf("%c",c);
 				c = 0;
 			} else {
-				printf("%d",file_content[i] & 1);
-				c += file_content[i] & 1;
 				c = c << 1;
+				c += file_content[i] & 1;
 			}
 			i++;
 		}
