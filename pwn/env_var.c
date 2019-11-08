@@ -13,7 +13,9 @@ int main(int argc, char **argv) {
 		if( ptr == NULL ) {
 			printf("%s not found\n", argv[1]);
 		} else {
-			printf("%s : 0x%08x\n", argv[1], (unsigned) ptr);
+			printf("[%s] : 0x%08x\n", argv[1], (unsigned) ptr);
+			int offset = strlen(argv[1]) + 1;
+			printf("[START OF PAYLOAD] : 0x%08x\n", (unsigned)ptr + offset);
 		}
 
 	} else {
