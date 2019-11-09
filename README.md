@@ -14,7 +14,12 @@ gcc -Wall -Wextra -pedantic -std=c99 -o <binary_file_name> <source_file_name>
 
 ### PWN
 
+Le désassembleur utilise la bibliothèque [Capstone](https://www.capstone-engine.org/).
+
+Le générateur de payload utilise [Keystone](https://www.keystone-engine.org/).
+
 * [Récupération addresse variable environnement](pwn/env_var.c)
+* [\[WIP\] Désassembleur ELF](pwn/parser.c)
 
 ### Steganographie
 
