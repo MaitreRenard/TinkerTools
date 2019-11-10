@@ -16,7 +16,7 @@ char* read_section64(FILE* file_pointer, Elf64_Shdr section_header)
 }
 
 
-void print_elf_header64(Elf64_Ehdr elf_header)
+void print_elf_header(Elf64_Ehdr elf_header)
 {
 
 	/* Storage capacity class */
@@ -41,15 +41,15 @@ void print_elf_header64(Elf64_Ehdr elf_header)
 	switch(elf_header.e_ident[EI_DATA])
 	{
 		case ELFDATA2LSB:
-			printf("little endian\n");
+			printf("Little endian\n");
 			break;
 
 		case ELFDATA2MSB:
-			printf("big endian\n");
+			printf("Big endian\n");
 			break;
 
 		default:
-			printf("INVALID Format\n");
+			printf("Invalid format\n");
 			break;
 	}
 
@@ -103,7 +103,7 @@ int main(int argc, char **argv) {
 		Elf64_Ehdr elf_header;
 		fread((void *)&elf_header, sizeof(elf_header), 1, file_pointer);
 		//display it
-		print_elf_header64(elf_header);
+		print_elf_header(elf_header);
 
 		//Allocate memory for section header table of size : section header entry size * nb section
 		Elf64_Shdr* section_header_table = malloc(elf_header.e_shentsize * elf_header.e_shnum);
@@ -131,6 +131,7 @@ int main(int argc, char **argv) {
 			exit(1);
 		}
 		fread((void *)&text_section,section_header_table[text_section_idx].sh_size,1,file_pointer);
+		//printf("%d",(section_header_string_table + section_header_table[text_section_idx].sh_size));
 
 		//Initialize capstone
 		csh handle;
@@ -139,23 +140,19 @@ int main(int argc, char **argv) {
 		if (cs_open(CS_ARCH_X86, CS_MODE_64, &handle) != CS_ERR_OK)
 			return -1;
 
-		count = cs_disasm(handle, &text_section, 100, 0, 0, &insn);
-		printf("Check !\n");
+		count = cs_disasm(handle, &text_section, 200, 0, 0, &insn);
 		if (count > 0) {
 			size_t j;
 			for (j = 0; j < count; j++) {
-				printf("0x%"PRIx64":\t%s\t\t%s\n", insn[j].address, insn[j].mnemonic, insn[j].op_str);
+				printf("0x%"PRIx64":\t%s %s\n", insn[j].address, insn[j].mnemonic, insn[j].op_str);
 			}
 
 			cs_free(insn, count);
 		} else
 			printf("ERROR: Failed to disassemble given code!\n");
 
+		printf("Check !\n");
 		cs_close(&handle);
-
-
-
-		//When we are finished, we close the file
 		fclose(file_pointer);  
 	} else {
 		printf("Usage : %s <file_name>\n",argv[0]);
