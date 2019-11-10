@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
 
 		//Get file size
 		fseek(file_pointer, 0, SEEK_END);  
-		const long file_size = ftell(file_pointer);  
+		long file_size = ftell(file_pointer);  
 
 		//Allocate some memory to store the file data
 		unsigned char *file_content = malloc(file_size);  
@@ -26,17 +26,10 @@ int main(int argc, char **argv) {
 
 		fclose(file_pointer);  
 
-		//Print the file LSB
+		//Print the file content
 		int i = 0;
-		char c = 0;
 		while (i < file_size) {
-			if (i % 8 == 0 && i != 0) {
-				printf("%c",c);
-				c = 0;
-			} else {
-				c = c << 1;
-				c += file_content[i] & 1;
-			}
+			printf("%c",file_content[i]);
 			i++;
 		}
 
