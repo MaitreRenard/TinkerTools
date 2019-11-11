@@ -3,10 +3,17 @@
 Liste d'exécutables (principalement C) utiles en CTF ou pour du dev.
 
 ```bash
-gcc -Wall -Wextra -pedantic -std=c99 -o <binary_file_name> <source_file_name>
+gcc -O3 -std=c18 -Wall -Wextra -Wpedantic -Wformat=2 -Wno-unused-parameter -Wshadow -Wwrite-strings -Wstrict-prototypes -Wold-style-definition -Wredundant-decls -Wnested-externs -Wmissing-include-dirs -Wjump-misses-init -Wlogical-op -o <binary_file>.out <source_file>
 ```
 
 ## Développement
+
+### Templates de code C
+
+* Basique
+* Affichage simple avec ncurses
+
+### Structures de données
 
 * [Liste](libs/list)
 
@@ -19,7 +26,8 @@ Le désassembleur utilise la bibliothèque [Capstone](https://www.capstone-engin
 Le générateur de payload utilise [Keystone](https://www.keystone-engine.org/).
 
 * [Récupération addresse variable environnement](pwn/env_var.c)
-* [\[WIP\] Désassembleur ELF](pwn/parser.c)
+* [\[WIP\] Désassembleur ELF](pwn/elf_parser/parser.c)
+* [\[WIP\] Implémentation de l'algorithme de De Bruijn](pwn/de_bruijn.c)
 
 ### Steganographie
 
