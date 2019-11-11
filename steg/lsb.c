@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//TODO 1 : Ajouter la possibilité de choisir le nombre de LSB à récupérer
+
 int main(int argc, char **argv) {
 
 	if (argc > 0) {
@@ -34,8 +36,8 @@ int main(int argc, char **argv) {
 				printf("%c",c);
 				c = 0;
 			} else {
-				c = c << 1;
-				c += file_content[i] & 1;
+				c = c << 1; //c << nb_bits
+				c += file_content[i] & 1; // file_content[i] & pow(2,nb_bits) - 1
 			}
 			i++;
 		}

@@ -15,14 +15,13 @@ gcc -O3 -std=c18 -Wall -Wextra -Wpedantic -Wformat=2 -Wno-unused-parameter -Wsha
 
 ### Structures de données
 
-* [Liste](libs/list)
+* [Liste](list/list.h)
 
 ## CTF
 
 ### PWN
 
 Le désassembleur utilise la bibliothèque [Capstone](https://www.capstone-engine.org/).
-
 Le générateur de payload utilise [Keystone](https://www.keystone-engine.org/).
 
 * [Récupération addresse variable environnement](pwn/env_var.c)
