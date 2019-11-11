@@ -24,11 +24,13 @@ int main(int argc, char **argv) {
 	while(x < screen_width) {
 		mvprintw(y, x, "=");
 		refresh();
-		//sleep(500);
+		usleep(10000);
 		x++;
 	}
 	mvprintw(y, x, "]");
 	refresh();
+
+	//Wait for 500s
 	sleep(500);
 
 	endwin();
