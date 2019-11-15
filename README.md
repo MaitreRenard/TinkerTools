@@ -10,8 +10,10 @@ gcc -O3 -std=c18 -Wall -Wextra -Wpedantic -Wformat=2 -Wno-unused-parameter -Wsha
 
 ### Templates de code C
 
-* Basique
-* Affichage simple avec ncurses
+* [Basique](templates/basis.c)
+* [Basique avec gestion des arguments](templates/basis_with_args.c)
+* [Affichage simple avec ncurses](templates/basic_ncurses.c)
+* [Lecteur de fichier](templates/file_read.c)
 
 ### Structures de données
 
@@ -22,6 +24,7 @@ gcc -O3 -std=c18 -Wall -Wextra -Wpedantic -Wformat=2 -Wno-unused-parameter -Wsha
 ### PWN
 
 Le désassembleur utilise la bibliothèque [Capstone](https://www.capstone-engine.org/).
+
 Le générateur de payload utilise [Keystone](https://www.keystone-engine.org/).
 
 * [Récupération addresse variable environnement](pwn/env_var.c)

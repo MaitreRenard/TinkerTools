@@ -140,7 +140,7 @@ int main(int argc, char **argv) {
 		if (cs_open(CS_ARCH_X86, CS_MODE_64, &handle) != CS_ERR_OK)
 			return -1;
 
-		count = cs_disasm(handle, &text_section, 200, 0, 0, &insn);
+		count = cs_disasm(handle, &text_section, 2000, 0, 0, &insn);
 		if (count > 0) {
 			size_t j;
 			for (j = 0; j < count; j++) {
