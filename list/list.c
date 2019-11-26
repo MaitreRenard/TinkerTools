@@ -3,23 +3,23 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-node* newNode() {
-	node* noeud = malloc(sizeof(node));
-	noeud->value = 0;
-	noeud->next = NULL;
+node* new_node() {
+	node* n = malloc(sizeof(node));
+	n->value = 0;
+	n->next = NULL;
 
-	return noeud;
+	return n;
 }
 
-list* newList() {
-	list* liste = malloc(sizeof(list));
-	liste->length = 0;
-	liste->first = newNode();
+list* new_list() {
+	list* l = malloc(sizeof(list));
+	l->length = 0;
+	l->first = newNode();
 
-	return liste;
+	return l;
 }
 
-void printList(list* myList) {
+void print_list(list* myList) {
 	node* currentNode = myList->first;
 	int index = 0;
 	
@@ -35,7 +35,7 @@ void printList(list* myList) {
 	printf("]");
 }
 
-void addToList(int n, list* l) {
+void add_to_list(list* l, int n) {
 	l->length++;
 	node* currentNode = l->first;
 
@@ -44,5 +44,18 @@ void addToList(int n, list* l) {
 	}
 
 	currentNode->value = n;
-	currentNode->next = newNode();
+	currentNode->next = new_node();
+}
+
+void rm_from_list(list* l, int index) {
+	if (index > l->length - 1 || index <= 0) {
+		//Change behavior
+		exit(1);
+	} else {
+		int i = 0;
+
+		while (i < index - 1)
+
+		l->length--;
+	}
 }

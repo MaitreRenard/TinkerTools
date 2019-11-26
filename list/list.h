@@ -1,7 +1,7 @@
-#ifndef _INTEGER_LIST_
-#define _INTEGER_LIST_
+#ifndef _LIST_
+#define _LIST_
 
-#include<stdbool.h>
+#include <stdbool.h>
 
 typedef struct node node;
 struct node {
@@ -16,18 +16,23 @@ struct list {
 };
 
 //Constructeurs
-list* newList();
-node* newNode();
+list* new_list();
+node* new_node();
 
-void printList(list* myList);
-void addToList(int n, list* l);
+void print_list(list* myList);
 
 /*
 * Add value to list
 * @param list The list we add the element to
 * @param value The value to add
 */
-int add(list* list, void *value);
-int rm(list* list, int index)
+int add_to_list(list* list, void *value);
 
-#endif
+/*
+* Remove the value at index
+* @param list The list we remove the element from
+* @param index The index of the value to remove
+*/
+int rm_from_list(list* list, int index)
+
+#endif /* define _LIST_ */
