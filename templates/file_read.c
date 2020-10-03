@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
 		unsigned char *file_content = malloc(file_size);  
 
 		//Go to start and read all the file content
-		fseek(file_pointer, 0, SEEK_SET);  
+		rewind(file_pointer);
 		fread(file_content, 1, file_size, file_pointer);  
 
 		fclose(file_pointer);  

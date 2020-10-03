@@ -1,36 +1,28 @@
 # TinkerTools
 
-Liste d'exécutables (principalement C) utiles en CTF ou pour du dev.
+Little C programs useful for dev, ctf or only discovery.
 
-```bash
-gcc -O3 -std=c18 -Wall -Wextra -Wpedantic -Wformat=2 -Wno-unused-parameter -Wshadow -Wwrite-strings -Wstrict-prototypes -Wold-style-definition -Wredundant-decls -Wnested-externs -Wmissing-include-dirs -Wjump-misses-init -Wlogical-op -o <binary_file>.out <source_file>
-```
+## Development
 
-## Développement
+Using [qlibc](https://github.com/wolkykim/qlibc) and [glib](https://gitlab.gnome.org/GNOME/glib).
 
-### Templates de code C
+### C code templates
 
-* [Basique](templates/basis.c)
-* [Basique avec gestion des arguments](templates/basis_with_args.c)
-* [Affichage simple avec ncurses](templates/basic_ncurses.c)
-* [Lecteur de fichier](templates/file_read.c)
-
-### Structures de données
-
-* [Liste](list/list.h)
-
-## CTF
+* [Basic](templates/basis.c)
+* [Handling arguments basis](templates/basis_with_args.c)
+* [Simple display with ncurses](templates/basic_ncurses.c)
+* [File reading](templates/file_read.c)
 
 ### PWN
 
-Le désassembleur utilise la bibliothèque [Capstone](https://www.capstone-engine.org/).
+Disassembler using [Capstone](https://www.capstone-engine.org/).
 
-Le générateur de payload utilise [Keystone](https://www.keystone-engine.org/).
+Payload generator using [Keystone](https://www.keystone-engine.org/).
 
-* [Récupération addresse variable environnement](pwn/env_var.c)
-* [\[WIP\] Désassembleur ELF](pwn/elf_parser/parser.c)
-* [\[WIP\] Implémentation de l'algorithme de De Bruijn](pwn/de_bruijn.c)
+* [Get the address of an environment variable](pwn/env_var.c)
+* [\[WIP\] ELF disassembler](pwn/elf_parser/parser.c)
+* [\[WIP\] De bruijn implementation](pwn/de_bruijn.c)
 
-### Steganographie
+### Steganography
 
-* [Extraction LSB](steg/lsb.c)
+* [LSB Extraction](steg/lsb.c)

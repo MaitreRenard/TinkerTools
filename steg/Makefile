@@ -4,9 +4,9 @@ CFLAGS += -Wall -Wextra -Wpedantic \
           -Wredundant-decls -Wnested-externs -Wmissing-include-dirs \
 		  -Wjump-misses-init -Wlogical-op
 
-LIBRARIES=
+LIBRARIES=-lm
 
-base64.out: base64.o
+lsb.out: lsb.o
 	${CC} $< -O3 -std=c18 ${CFLAGS} -o $@ ${LIBRARIES}
 
 %.o: %.c
