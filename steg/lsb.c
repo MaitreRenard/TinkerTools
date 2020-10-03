@@ -3,8 +3,8 @@
 #include <argp.h>
 #include <math.h>
 
-const static char doc[] = "Extract least significant bit from file.";
-const static char args_doc[] = "FILE";
+static char doc[] = "Extract least significant bit from file.";
+static char args_doc[] = "FILE";
 
 struct arguments
 {
