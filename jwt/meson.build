@@ -5,8 +5,6 @@ project('jwt', 'c', version : '0.1',
 	]
 )
 
-jwt_source	= './src/jwt.c'
-
 # Define security flags
 security_link_flags = [
 	'-Wl,-z,relro',
